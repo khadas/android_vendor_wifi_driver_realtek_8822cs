@@ -543,7 +543,7 @@ s32 rtl8822cs_recv_hdl(_adapter *adapter)
 	return ret;
 }
 
-static void recv_tasklet(void *priv)
+static void recv_tasklet(unsigned long priv)
 {
 	PADAPTER adapter;
 	s32 ret;
@@ -617,7 +617,7 @@ s32 rtl8822cs_init_recv_priv(PADAPTER adapter)
 	/* 2. init tasklet */
 #ifdef PLATFORM_LINUX
 	tasklet_init(&precvpriv->recv_tasklet,
-		     (void(*)(unsigned long))recv_tasklet,
+		     recv_tasklet,
 		     (unsigned long)adapter);
 #endif
 

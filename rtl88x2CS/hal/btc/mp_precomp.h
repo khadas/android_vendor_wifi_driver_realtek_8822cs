@@ -30,7 +30,7 @@
 
 #define DCMD_Printf			DBG_BT_INFO
 
-#define ODM_delay_ms(ms)		rtw_mdelay_os(ms)
+#define delay_ms(ms)		rtw_mdelay_os(ms)
 
 #ifdef bEnable
 #undef bEnable
